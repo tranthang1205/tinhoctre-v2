@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Fredoka+One&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/login.css') }}">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-image:  url("{{ url_for('static', filename='/IMG/background_login.png') }}")
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Main">
+        <div class="LOGIN">
+            <div class="Header">
+                <div class="Header1">
+                    <div class="H1">Welcome</div>
+                    <div class="H2">Chef!!</div>
+                </div>
+                <div class="Header2">We are excited to see you again!!</div>
+            </div>
+
+            
+                {#post là truyền dữ liệu từ html lên hệ thống#} {#get ngược lại#}
+            <form action="" method="post">
+                <div class="login MAIL">
+                    <label class="Label" for="email">EMAIL OR PHONE NUMBER</label>
+                    <input class="input" type="text" placeholder="" name="Email">
+                </div>
+
+                <div class="login PASS">
+                    <label class="Label" for="password">PASSWORD</label>
+                    <input class="input" type="text" placeholder="">
+                </div>
+
+                <div class="fogot">
+                    <a href="">Forgot your password?</a>
+                </div>
+
+                <input type="submit" value="Login" class="login-btn">
+                
+                <div class="Register">
+                    <div class="Register1">Need an account?</div>
+                    <div class="Register2"><a href="">Register</a></div>
+                </div>
+            </form>
+            
+        </div>
+
+        <div class="Divide"></div>
+
+        <div class="Logo">
+            <img src="{{ url_for('static', filename='IMG/logo.png') }}" class="LG">
+            <h1>Le Cuisinier</h1>
+            <div class="Contact">
+                <div class="box"></div>
+                <a href=""><div class="path"><img src="{{ url_for('static', filename='IMG/facebook.png') }}" name="Facebook"></div></a>
+                <div class="circle"></div>
+                <a href=""><div class="path"><img src="{{ url_for('static', filename='IMG/twitter.png') }}" name="Twitter"></div></a>
+                <div class="circle"></div>
+                <a href=""><div class="path"><img src="{{ url_for('static', filename='IMG/discord.png') }}" name="Discord"></div></a>
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
