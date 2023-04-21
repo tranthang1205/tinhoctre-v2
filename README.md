@@ -7,7 +7,7 @@ Yêu cầu `python3.8+`
 Clone project
 
 ```bash
-git clone [link] ~/tinhoctre
+git clone https://github.com/tranthang1205/tinhoctre-v2 ~/tinhoctre
 ```
 
 ```bash
