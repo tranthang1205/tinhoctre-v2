@@ -956,6 +956,14 @@ button:active {
   object-fit: cover;
 }
 
+.element img {
+  width: 240px;
+  height: 150px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  object-fit: cover;
+}
+
 .element div {
   display: flex;
   flex-direction: column;

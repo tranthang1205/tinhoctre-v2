@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from backend.models import *
 
 # Create your views here.
 
@@ -9,10 +10,14 @@ def home(request):
     return render(request, template_name='home.html')
 
 def searchfood(request):
-    return render(request, template_name='search-food.html')
+    foods = Food.objects.all()
+    ct = {"foods": foods}
+    return render(request, 'search-food.html', ct)
 
 def searchingredients(request):
     return render(request, template_name='search-ingredients.html')
 
 def food(request):
-    return render(request, template_name='food.html')
+   foods = Food.objects.all()
+   ct = {"foods": foods} 
+   return render(request, 'food.html', ct)

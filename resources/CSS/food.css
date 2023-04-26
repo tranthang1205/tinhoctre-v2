@@ -170,13 +170,12 @@ header .box-page .page-login:hover {
 /*------------------------------BODY--------------------------*/
 section {
     width: 100%;
-    height: 1800px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding: 100px 200px 0 200px;
 }
 
 /*-------SECTION MAIN-------*/
@@ -350,7 +349,10 @@ section .main-img img {
 
 .main-2 .directions .step {
     width: 700px;
-    height: 214px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .main-2 .directions .step .head {
@@ -359,8 +361,8 @@ section .main-img img {
     font-weight: 400;
     font-size: 30px;
     line-height: 43px;
-    text-decoration-line: underline;
     color: #191919;
+    padding-bottom: 0.5rem;
 }
 
 .main-2 .directions .step .info {
@@ -371,6 +373,15 @@ section .main-img img {
     font-size: 20px;
     line-height: 29px;
     color: #191919;
+}
+
+.TAT{
+    width: 650px;
+    height: 500px;
+    margin: auto;
+    object-fit: cover;
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
 /* ----- Advertising ----- */
@@ -394,7 +405,7 @@ section .main-img img {
 /* ----- Section About ----- */
 .section-6 {
     width: 100%;
-    height: 600px;
+    height: auto;
     background: #ECECEC;
     display: flex;
     flex-direction: column;

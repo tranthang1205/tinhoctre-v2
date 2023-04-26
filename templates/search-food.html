@@ -1,13 +1,15 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="{{url_for('static',filename='IMG/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'IMG/favicon.png' %}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search - Le Cusiner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/search-food.css')}}">
+    <link rel="stylesheet" href="{% static 'CSS/search-food.css' %}?v=2">
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,19 +20,19 @@
 </head>
 
 <body>
-    <!----------------------HEADER----------------->
+    <!-- --------------------HEADER--------------- -->
     <header id="back">
         <form class="box">
             <label class="box-logo">
-                <a href="{{url_for('landing')}}"><img id="im"
-                        src=" {{ url_for('static', filename='IMG//IMG-SEARCH/logo.png') }}" alt="logo"></a>
+                <a href="{% url 'landing' %}"><img id="im"
+                        src=" {% static 'IMG/IMG-SEARCH/logo.png' %}" alt="logo"></a>
             </label>
             <label class="box-page">
                 <div class="page-home">
-                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="page-search">
-                    <a href="{{ url_for('searchfood')}}">Search</a>
+                    <a href="{% url 'searchfood' %}">Search</a>
                 </div>
                 <div class="page-tip">
                     <a href="">Tips</a>
@@ -38,7 +40,7 @@
             </label>
         </form>
     </header>
-    <!----------------------------------SCROLL NAVBAR---------------------------->
+    <!-- --------------------------------SCROLL NAVBAR-------------------------- -->
 <script>
     window.onscroll = function () {
         scrollFunction()
@@ -56,9 +58,8 @@
         }
     }
 </script>
-<!--------------------------------------------------------------------------->
-    <!-------------BODY--------------->
-
+<!-- ----------------------------------------------------------------------- -->
+    <!-- -----------BODY------------- -->
     <section>
         <form action="">
             <label for="">
@@ -72,7 +73,7 @@
     </section>
 
     <div class="divide"></div>
-    <!----------------POP UP------------------>
+    <!-- --------------POP UP---------------- -->
     <div id="bg">
         <div id="container">
             <div class="headtile">
@@ -102,9 +103,9 @@
                             Upload File
                         </label>
                     </div>
-                    <!------------------------------------------->
+                    <!-- --------------------------------------- -->
                 </div>
-                 <!---------------------------SCRIP IMG---------->
+                 <!-- -------------------------SCRIP IMG-------- -->
                  <script>
                     const addImage = document.getElementById("addImage");
                     const search = document.getElementById("search")
@@ -188,7 +189,7 @@
             bg.classList.remove('show');
         });  
     </script>
-    <!---------------------SECION -MAIN------------------------------------>
+    <!-- -------------------SECION -MAIN---------------------------------- -->
     <div class="section-2">
         <!-- left -->
         <form class="left">
@@ -327,20 +328,24 @@
                 <p>144 results for “Ma”</p>
             </div>
             <div class="bottom">
-                <a class="element" href="{{ url_for('food') }}">
+                {% for food in foods %}
+                <a class="element" href="{% url 'food' %}">
                     <!-- img -->
-                    <div-1></div-1>
+                    <img src="{{food.picture.url}}">
                     <!-- -->
                     <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
+                        <div-2>{{ food.number_of_ingredients }} ingredients</div-2>
+                        <div-3>{{ food.name }}</div-3>
                         <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
+                            {% for type in food.ings2.all %}
+                            <div-5>{{ type.name }}</div-5>
+                            {% endfor %}
+                            <div-5>{{ food.time }}</div-5>
+                            <div-5>{{ food.calo}} calo</div-5>
                         </div-4>
                     </div>
                 </a>
+                {% endfor %}
 
                 <a class="element" href="">
                     <!-- img -->
@@ -556,7 +561,7 @@
             <div class="loadmore">
                 <button class="btn">
                     <div>Load More</div>
-                    <img src="{{ url_for('static', filename='/IMG/IMG-SEARCH/loadmore.png')}}" alt="">
+                    <img src="{% static '/IMG/IMG-SEARCH/loadmore.png' %}" alt="">
                 </button>
             </div>
             <!-- script -->
@@ -595,7 +600,7 @@
         <div class="member">
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/mrtoan.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/mrtoan.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>MrToan</p>
@@ -606,7 +611,7 @@
             </div>
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/Toan.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/Toan.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>Toan</p>
@@ -617,7 +622,7 @@
             </div>
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/thang.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/thang.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>Thang</p>
@@ -628,8 +633,8 @@
             </div>
         </div>
     </div>
-    <!-------------------Footer----------------->
+    <!-- -----------------Footer--------------- -->
     <footer>
-        <img src="{{ url_for('static', filename='/IMG/IMG-HOME/thankyou.png') }}" alt="footer">
+        <img src="{% static '/IMG/IMG-HOME/thankyou.png' %}" alt="footer">
     </footer>
 </body>

@@ -1,28 +1,30 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="{{url_for('static',filename='IMG/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'IMG/favicon.png' %}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food - Le Cusiner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/food.css') }}">
+    <link rel="stylesheet" href="{% static 'CSS/food.css' %}?v=3">
 </head>
 
 <body>
-    <!----------------------HEADER----------------->
+    <!-- --------------------HEADER--------------- -->
     <header id="back">
         <div class="box">
             <div class="box-logo">
-                <a href="{{url_for('landing')}}"><img id="im" src="{{ url_for('static', filename='IMG/IMG-HOME/logo-fix.png') }}" alt="logo"></a>
+                <a href="{% url 'landing' %}"><img id="im" src="{% static 'IMG/IMG-HOME/logo-fix.png' %}" alt="logo"></a>
             </div>
             <div class="box-page">
                 <div class="page-home">
-                    <a href="{{ url_for('home') }}">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="page-search">
-                    <a href="{{ url_for('searchfood')}}">Search</a>
+                    <a href="{% url 'searchfood' %}">Search</a>
                 </div>
                 <div class="page-tip">
                     <a href="">Tips</a>
@@ -48,107 +50,70 @@
             }
         }
     </script>
-    <!--------------------------------------------------------------------------->
-    <!-------------BODY--------------->
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- -----------BODY------------- -->
+    {% for food in foods %}
     <section>
         <div class="main">
             <div class="main-text">
                 <div class="main-text-1">
-                    <p class="text-1">Lady Baltimore Cake</p>
-                    <p class="text-2">Dessert</p>
-                    <p class="text-3">The wonderfully tasty white layer cake
-                        with fluffy frosting and a fruit-and-nut filling.</p>
+                    <p class="text-1">{{ food.name }}</p>
+                    {% for type in food.ings2.all %}
+                    <p class="text-2">{{ type.name }}</p>
+                    {% endfor %}
+                    <p class="text-3">{{ food.introduce }}</p>
                 </div>
                 <div class="main-text-2">
                     <div class="ingredients">
-                        <p class="number">10</p>
+                        <p class="number">{{ food.number_of_ingredients }}</p>
                         <p class="intro">Ingredients</p>
                     </div>
                     <div class="minute">
-                        <p class="number">80</p>
+                        <p class="number">{{ food.time }}</p>
                         <p class="intro">minutes</p>
                     </div>
                     <div class="calories">
-                        <p class="number">1000</p>
+                        <p class="number">{{ food.calo }}</p>
                         <p class="intro">Calories</p>
                     </div>
                 </div>
             </div>
             <div class="main-img">
-                <img src="/static//IMG/IMG-HOME/section4-food.png" alt="">
+                {% for food in foods %}
+                <img src="{{food.picture.url}}" alt="">
+                {% endfor %}
             </div>
         </div>
         <div class="main-2">
             <div class="ingredient">
                 <p class="head">Ingredients</p>
                 <div class="list">
-                    <div class="item">
-                        <!--Circle-->
-                        <div class="circle"></div>
-                        <!--Text-->
-                        <p class="text">Ingredient 1</p>
-                    </div>
-                    <div class="item">
-                        <!--Circle-->
-                        <div class="circle"></div>
-                        <!--Text-->
-                        <p class="text">Ingredient 2</p>
-                    </div>
-                    <div class="item">
-                        <!--Circle-->
-                        <div class="circle"></div>
-                        <!--Text-->
-                        <p class="text">Ingredient 3</p>
-                    </div>
-                    <div class="item">
-                        <!--Circle-->
-                        <div class="circle"></div>
-                        <!--Text-->
-                        <p class="text">Ingredient 4</p>
-                    </div>
-                    <div class="item">
-                        <!--Circle-->
-                        <div class="circle"></div>
-                        <!--Text-->
-                        <p class="text">Ingredient 5</p>
-                    </div>
+                    {% for food in foods %}
+                        {% for ingredient in food.ings1.all %}
+                        <div class="item">
+                            <!-- Circle -->
+                            <div class="circle"></div>
+                            <!-- Text -->
+                            <p class="text">{{ ingredient.name }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                    
                 </div>
             </div>
             <div class="directions">
                 <p class="head">Directions</p>
+                {% for about in food.ings3.all %}
                 <div class="step">
-                    <p class="head">Step 1</p>
-                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <p class="head">{{ about.name }}</p>
+                    <p class="info">{{ about.step }}</p>
+                    <img src="{{ about.picture.url }}" class="TAT">
                 </div>
-                <div class="step">
-                    <p class="head">Step 2</p>
-                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-                <div class="step">
-                    <p class="head">Step 3</p>
-                    <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident,
-                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
+    {% endfor %}
     <!-- ----------ADVERTISING---------- -->
     <div class="advertising">
         Ad
@@ -162,7 +127,7 @@
         <div class="member">
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/mrtoan.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/mrtoan.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>MrToan</p>
@@ -173,7 +138,7 @@
             </div>
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/Toan.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/Toan.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>Toan</p>
@@ -184,7 +149,7 @@
             </div>
             <div class="item">
                 <div class="box-avt">
-                    <img src="{{url_for('static',filename='IMG/thang.jpg')}}" alt="avt">
+                    <img src="{% static 'IMG/thang.jpg' %}" alt="avt">
                 </div>
                 <div class="info">
                     <p>Thang</p>
@@ -195,8 +160,8 @@
             </div>
         </div>
     </div>
-    <!-------------------Footer----------------->
+    <!-- -----------------Footer--------------- -->
     <footer>
-        <img src="{{ url_for('static', filename='/IMG/IMG-HOME/thankyou.png') }}" alt="footer">
+        <img src="{% static '/IMG/IMG-HOME/thankyou.png' %}" alt="footer">
     </footer>
 </body>

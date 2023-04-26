@@ -34,3 +34,33 @@ python3 manage.py createsuperuser
 ```bash
 python3 manage.py runserver
 ```
+
+## Load data 
+```bash
+thư mục fixtures là thư mục lưu dữ liệu của datebase
+file ing.yaml lưu toàn bộ dữ liệu
+-> tạo file ing.yaml -> thêm dữ liệu -> upload data bằng câu lệnh: python3 manage.py loaddata ing
+* Lưu ý: chỉ được loaddata 1 lần, muốn cập nhật thì xóa đi tạo lại
+```
+
+## Trick
+#
+- xuống dòng trong file ing.yaml -> thêm dấu `|`
+
+```yaml
+- model: backend.About
+  pk: 1
+  fields:
+    name: Maruuu
+    step: |
+      Maru Mogi
+
+      Maru Mogi
+
+      Maru Mogi
+```
+#
+- Mỗi khi sửa css nếu không nhận trong html thì sửa `?v=..`
+```html
+<link rel="stylesheet" href="{% static 'CSS/food.css' %}?v=3">
+```
