@@ -20,6 +20,7 @@ pip3 install -r requirements.txt
 ## Khởi tạo Database
 
 ```bash
+python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
@@ -64,3 +65,6 @@ file ing.yaml lưu toàn bộ dữ liệu
 ```html
 <link rel="stylesheet" href="{% static 'CSS/food.css' %}?v=3">
 ```
+#
+- Sử dụng lệnh html cho database
+```html

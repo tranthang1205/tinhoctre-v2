@@ -366,7 +366,7 @@ section .main-img img {
 }
 
 .main-2 .directions .step .info {
-    text-indent: 40px;
+    padding-left: 40px;
     font-family: 'Jost';
     font-style: normal;
     font-weight: 400;

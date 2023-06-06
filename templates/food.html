@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food - Le Cusiner</title>
-    <link rel="stylesheet" href="{% static 'CSS/food.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'CSS/food.css' %}?v=4">
 </head>
 
 <body>
@@ -94,11 +94,14 @@
                             <!-- Circle -->
                             <div class="circle"></div>
                             <!-- Text -->
-                            <p class="text">{{ ingredient.name }}</p>
+                            {% for tat in food.ingredient.all %}
+                                {% if forloop.counter == forloop.parentloop.counter %}
+                                <p class="text"> {{ tat.amount }} {{ ingredient.measure }} {{ ingredient.name }}</p>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                         {% endfor %}
-                    {% endfor %}
-                    
+                    {% endfor %}  
                 </div>
             </div>
             <div class="directions">

@@ -1,40 +1,45 @@
 ### Ingredient
-# 1: Thịt ba chỉ - Gram 
+# 1: ground beef - pounds
 - model: backend.Ingredient
   pk: 1
   fields:
-    name: Thịt ba chỉ
-    measure: Gram
-# 2: Trứng vịt luộc - Quả 
+    name: ground beef
+    measure: pounds
+# 2: egg, beaten
 - model: backend.Ingredient
   pk: 2
   fields:
-    name: Trứng vịt luộc
-    measure: Quả
-# 3: Nước dừa - ml 
+    name: egg, beaten
+# 3: dry bread crumbs - cup
 - model: backend.Ingredient
   pk: 3
   fields:
-    name: Nước dừa
-    measure: ml
-# 4: Hành băm - Muỗng canh 
+    name: dry bread crumbs
+    measure: cup
+# 4: evaporated milk - tablespoons
 - model: backend.Ingredient
   pk: 4
   fields:
-    name: Hành băm 
-    measure: Muỗng canh
-# 5: Tỏi băm - Muỗng canh 
+    name: evaporated milk 
+    measure: tablespoons
+# 5: Worcestershire sauce - tablespoons
 - model: backend.Ingredient
   pk: 5
   fields:
-    name: Tỏi băm 
-    measure: Muỗng canh
-# 6: Nước mắm - Muỗng canh 
+    name: Worcestershire sauce
+    measure: tablespoons
+# 6: cayenne pepper - teaspoon
 - model: backend.Ingredient
   pk: 6
   fields:
-    name: Nước mắm
-    measure: Muỗng canh
+    name: cayenne pepper
+    measure: teaspoon
+# 7:  garlic, minced - cloves
+- model: backend.Ingredient
+  pk: 7
+  fields:
+    name:  garlic, minced
+    measure: cloves
 
 ### Type
 # 1: Dessert
@@ -67,140 +72,164 @@
   pk: 6
   fields: 
     name: Breakfast
+# 7: Fastfood
+- model: backend.Type
+  pk: 7
+  fields:
+    name: Fastfood
 
 ### About
-# 1: Ướp thịt
+# 1: Step 1
 - model: backend.About
   pk: 1
   fields:
-    name: 1 - Ướp thịt
-    step: |
-      Thịt ba chỉ hay thịt chân giò sau khi mua về thì rửa sạch với nước muối, để ráo sau đó cắt miếng vừa ăn rồi cho vào tô, nên chọn thịt có da mỏng để kho được ngon, mau mềm hơn và không bị ngấy.
-
-      Lần lượt nêm vào tô 1 muỗng canh hành băm, 1 muỗng canh tỏi băm, 3 muỗng canh nước mắm, 2 muỗng canh đường, 1/3 muỗng canh hạt nêm và 1 muỗng cà phê tiêu, trộn đều.
-
-      Dùng màng bọc thực phẩm bọc tô thịt lại, ướp ít nhất trong 1 tiếng cho thịt thấm gia vị.
-    picture: "/about/uop-thit.jpg"
-# 2: Thắng nước màu
+    name: Step 1
+    step: Gather all ingredients.
+    picture: "/about/step1.png"
+# 2: Step 2
 - model: backend.About
   pk: 2
   fields:
-    name: 2 - Thắng nước màu
-    step: |
-      Bắc nồi lên bếp, cho vào nồi 1 muỗng cà phê đường đun với lửa vừa, cùng lúc đó dùng đũa khuấy đều đến khi nước đường trở màu nâu cánh gián thì tắt bếp.
-
-      Chờ đường nguội thì màu sẽ đậm hơn, đổ thêm 1/2 chén (chén ăn cơm) nước lọc cho loãng bớt.
-    picture: "/about/thang-nuoc-duong.jpg"
-# 3: Kho thịt
+    name: Step 2
+    step: Preheat a grill for high heat.
+    picture: "/about/step2.png"
+# 3: Step 3
 - model: backend.About
   pk: 3
   fields:
-    name: 3 - Kho thịt
-    step: |
-      Bạn gắp thịt đã ướp cho vào nồi nước màu vừa thắng, đảo với lửa lớn cho đến khi thịt săn lại thì đổ 400ml nước dừa vào.
-
-      Đậy nắp nồi lại rồi kho thịt với lửa nhỏ trong vòng 30 phút. Sau 30 phút, nếu thấy nước cạn quá thì cho thêm nước, cho 5 quả trứng vịt luộc đã bóc vỏ vào nồi, đậy nắp và đun tiếp trong 30 phút cho thịt chín mềm rồi tắt bếp.
-    picture: '/about/kho-thit.jpg'
-# 4: Thành phẩm
+    name: Step 3
+    step: Mix the ground beef, egg, bread crumbs, evaporated milk, Worcestershire sauce, cayenne pepper, and garlic in a large bowl using your hands.
+    picture: '/about/step3.png'
+# 4: Step 4
 - model: backend.About
   pk: 4
   fields:
-    name: 4 - Thành phẩm
-    step: |
-      - Bạn gắp thịt đã ướp cho vào nồi nước màu vừa thắng, đảo với lửa lớn cho đến khi thịt săn lại thì đổ 400ml nước dừa vào.
-
-      - Đậy nắp nồi lại rồi kho thịt với lửa nhỏ trong vòng 30 phút. Sau 30 phút, nếu thấy nước cạn quá thì cho thêm nước, cho 5 quả trứng vịt luộc đã bóc vỏ vào nồi, đậy nắp và đun tiếp trong 30 phút cho thịt chín mềm rồi tắt bếp.
-    picture: '/about/thanh-pham.jpg'
-
+    name: Step 4
+    step: Form the mixture into 8 hamburger patties.
+    picture: '/about/step4.png'
+# 5: Step 5
+- model: backend.About
+  pk: 5
+  fields: 
+    name: Step 5
+    step: Lightly oil the grill grate. Grill patties until browned and no longer pink, about 5 minutes per side.
+    picture: '/about/step5.png'
+# 6: Step 6
+- model: backend.About
+  pk: 6
+  fields: 
+    name: Step 6
+    step: Serve hot and enjoy!
+    picture: '/about/step6.png'
+  
 ### Food
-# 1: Thịt kho tàu
+# 1: Hamburger
 - model: backend.Food
   pk: 1
   fields: 
-    name: Thịt kho tàu
-    calo: 0.0
-    time: 1h30
-    introduce: It is a harmonious combination of traditional ingredients imbued with Vietnamese national identity
-    number_of_ingredients: 6
-    picture: "/Food/thanh-pham-1.jpg"
-    ings1: [1, 2, 3, 4, 5, 6]
-    ings2: [2]
-    ings3: [1, 2, 3, 4]
+    name: Hamburger
+    calo: 288
+    time: 35
+    introduce: No more dry, lackluster hamburgers. This is a harmonious combination of spices, where you can customize it to your taste.
+    number_of_ingredients: 7
+    picture: "/Food/step6.png"
+    ings1: [1, 2, 3, 4, 5, 6, 7]
+    ings2: [7]
+    ings3: [1, 2, 3, 4, 5, 6]
 
 ### Food_Ingredient
-# 1 - 1 - 500
+# 1 - 1 - 2
 - model: backend.Food_Ingredient
   pk: 1
   fields:
     food_id: 1
     ingredient_id: 1
-    amount: 500
-# 1 - 2 - 5
+    amount: 2
+# 1 - 2 - 1
 - model: backend.Food_Ingredient
   pk: 2
   fields:
     food_id: 1
     ingredient_id: 2
-    amount: 5
-# 1 - 3 - 400
+    amount: 1 
+# 1 - 3 - 3/4
 - model: backend.Food_Ingredient
   pk: 3
   fields:
     food_id: 1
     ingredient_id: 3
-    amount: 400
-# 1 - 4 - 1
+    amount: 3/4
+# 1 - 4 - 3
 - model: backend.Food_Ingredient
   pk: 4
   fields:
     food_id: 1
     ingredient_id: 4
-    amount: 1
-# 1 - 5 - 1
+    amount: 3
+# 1 - 5 - 2
 - model: backend.Food_Ingredient
   pk: 5
   fields:
     food_id: 1
     ingredient_id: 5
-    amount: 1
-# 1 - 6 - 3
+    amount: 2
+# 1 - 6 - 1/8
 - model: backend.Food_Ingredient
   pk: 6
   fields:
     food_id: 1
     ingredient_id: 6
-    amount: 3
+    amount: 1/8
+# 1 - 7 - 2
+- model: backend.Food_Ingredient
+  pk: 7
+  fields:
+    food_id: 1
+    ingredient_id: 7
+    amount: 2
 
 ### Food_Type
-# 1 - 2
+# 1 - 7
 - model: backend.Food_Type
   pk: 1
   fields:
     food_id: 1
-    type_id: 2
+    type_id: 7
   
 ### Food_About
-# 1 - 1 - Ướp thịt
+# 1 - 1 - Step 1
 - model: backend.Food_About
   pk: 1
   fields:
     food_id: 1
     about_id: 1
-# 1 - 2 - Thắng nước màu
+# 1 - 2 - Step 2
 - model: backend.Food_About
   pk: 2
   fields:
     food_id: 1
     about_id: 2
-# 1 - 3 - Kho thịt
+# 1 - 3 - Step 3
 - model: backend.Food_About
   pk: 3
   fields:
     food_id: 1
     about_id: 3
-# 1 - 4 - Thành phẩm
+# 1 - 4 - Step 4
 - model: backend.Food_About
   pk: 4
   fields:
     food_id: 1
     about_id: 4
+# 1 - 5 - Step 5
+- model: backend.Food_About
+  pk: 5
+  fields:
+    food_id: 1
+    about_id: 5
+# 1 - 6 - Step 6
+- model: backend.Food_About
+  pk: 6
+  fields:
+    food_id: 1
+    about_id: 6

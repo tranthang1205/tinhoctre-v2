@@ -238,6 +238,13 @@
                         <p>Breakfast</p>
                     </span>
                 </label>
+                <label class="left-type-box">
+                    <input type="checkbox" name="" id="">
+                    <span class="checkmark">
+                        <div></div>
+                        <p>Fastfood</p>
+                    </span>
+                </label>
             </div>
             <!-- -----Calories----- -->
             <div class="left-type">
@@ -340,7 +347,7 @@
                             {% for type in food.ings2.all %}
                             <div-5>{{ type.name }}</div-5>
                             {% endfor %}
-                            <div-5>{{ food.time }}</div-5>
+                            <div-5>{{ food.time }} mins</div-5>
                             <div-5>{{ food.calo}} calo</div-5>
                         </div-4>
                     </div>

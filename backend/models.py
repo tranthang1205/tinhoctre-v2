@@ -29,9 +29,9 @@ class Food(models.Model):
     ings3 = models.ManyToManyField(About, verbose_name=_("cac buoc nau"), through="Food_About")
 
 class Food_Ingredient(models.Model):
-    food_id = models.ForeignKey(Food, verbose_name=_("food"), on_delete=models.CASCADE)
+    food_id = models.ForeignKey(Food, verbose_name=_("food"), on_delete=models.CASCADE, related_name='ingredient')
     ingredient_id = models.ForeignKey(Ingredient, verbose_name=_("ingredient"), on_delete=models.CASCADE)
-    amount = models.IntegerField(_("Amount"), null=True)
+    amount = models.CharField(_("Amount"), max_length=50)
 
 class Food_Type(models.Model):
     food_id = models.ForeignKey(Food, verbose_name=_("food"), on_delete=models.CASCADE)
