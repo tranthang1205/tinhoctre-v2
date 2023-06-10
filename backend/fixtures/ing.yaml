@@ -133,6 +133,7 @@
     introduce: No more dry, lackluster hamburgers. This is a harmonious combination of spices, where you can customize it to your taste.
     number_of_ingredients: 7
     picture: "/Food/step6.png"
+    keyword: hamburger
     ings1: [1, 2, 3, 4, 5, 6, 7]
     ings2: [7]
     ings3: [1, 2, 3, 4, 5, 6]

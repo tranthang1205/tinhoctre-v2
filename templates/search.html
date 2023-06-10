@@ -1,0 +1,23 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <form action="{% url 'search' %}" method="GET">
+        <input type="text" name="keyword" placeholder="Search food">
+        <button type="submit">Search</button>
+    </form>
+
+    <h1>Search Results</h1>
+    <ul>
+        {% for food in foods %}
+            <li>{{ food.name }}</li>
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

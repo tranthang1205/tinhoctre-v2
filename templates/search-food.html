@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search - Le Cusiner</title>
-    <link rel="stylesheet" href="{% static 'CSS/search-food.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'CSS/search-food.css' %}?v=3">
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,15 +61,11 @@
 <!-- ----------------------------------------------------------------------- -->
     <!-- -----------BODY------------- -->
     <section>
-        <form action="">
-            <label for="">
-                <input class="search" type="text" placeholder="Enter name">
-                <input class="btn-search" type="submit" value="Search">
-            </label>
-            <!-- <input id="btn-open" type="submit" value="Recipe-Generator" class="recipe" onclick="openPopup()">
-            -->
-            <div class="recipe" id="btn-open">Recipe-Generator</div>
-        </form>
+            <form action="{% url 'searchfood' %}" method="GET">
+                <input class="search" type="text" name="keyword" placeholder="Enter name...">
+                <button type="submit">Search</button>
+                <div class="recipe" id="btn-open">Recipe-Generator</div>
+            </form>
     </section>
 
     <div class="divide"></div>
@@ -335,237 +331,33 @@
                 <p>144 results for “Ma”</p>
             </div>
             <div class="bottom">
-                {% for food in foods %}
-                <a class="element" href="{% url 'food' %}">
-                    <!-- img -->
-                    <img src="{{food.picture.url}}">
-                    <!-- -->
-                    <div>
-                        <div-2>{{ food.number_of_ingredients }} ingredients</div-2>
-                        <div-3>{{ food.name }}</div-3>
-                        <div-4>
-                            {% for type in food.ings2.all %}
-                            <div-5>{{ type.name }}</div-5>
-                            {% endfor %}
-                            <div-5>{{ food.time }} mins</div-5>
-                            <div-5>{{ food.calo}} calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-                {% endfor %}
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
-
-                <a class="element" href="">
-                    <!-- img -->
-                    <div-1></div-1>
-                    <!-- -->
-                    <div>
-                        <div-2>8 ingredients</div-2>
-                        <div-3>Stuffed Honeynut Squash</div-3>
-                        <div-4>
-                            <div-5>Appetizer</div-5>
-                            <div-5>1h 30 mins</div-5>
-                            <div-5>420 calo</div-5>
-                        </div-4>
-                    </div>
-                </a>
+                {% if foods %}
+                    {% for food in foods %}
+                        <a class="element" href="{% url 'food' %}">
+                            <!-- img -->
+                            <img src="{{food.picture.url}}">
+                            <!-- -->
+                            <div>
+                                <div-2>{{ food.number_of_ingredients }} ingredients</div-2>
+                                <div-3>{{ food.name }}</div-3>
+                                <div-4>
+                                    {% for type in food.ings2.all %}
+                                    <div-5>{{ type.name }}</div-5>
+                                    {% endfor %}
+                                    <div-5>{{ food.time }} mins</div-5>
+                                    <div-5>{{ food.calo}} calo</div-5>
+                                </div-4>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <li>No results found.</li>
+                {% endif %}
+                    
+                
             </div>
 
-            <div class="loadmore">
+            <div id='loadmore'>
                 <button class="btn">
                     <div>Load More</div>
                     <img src="{% static '/IMG/IMG-SEARCH/loadmore.png' %}" alt="">
@@ -576,7 +368,15 @@
                 var wraper = document.querySelectorAll('.element');
                 var btn = document.querySelector('.btn');
                 var currentimg = 12;
-                btn.addEventListener('click',
+
+                if (wraper.length < currentimg)
+                {
+                    document.getElementById("loadmore").style.display = "none";
+                }
+                
+                else
+                {
+                    btn.addEventListener('click',
                     function () {
                         for (var i = currentimg; i < currentimg + (wraper.length - 12); i++) {
                             if (wraper[i]) {
@@ -590,6 +390,7 @@
                             btn.style.display = 'none';
                         }
                     });
+                }
             </script>
         </div>
     </div>

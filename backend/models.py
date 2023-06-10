@@ -23,6 +23,7 @@ class Food(models.Model):
     introduce = models.TextField(_("Introduce"))
     number_of_ingredients = models.IntegerField(_("number_of_ingredients"))
     picture = models.ImageField(_("picture"), upload_to="Food")
+    keyword = models.CharField(_("Keyword"), max_length=50, default="Some String")
     # liên kết giữa 2 bảng, chỉ cần 1 liên kết là tạo được liên thông   
     ings1 = models.ManyToManyField(Ingredient, verbose_name=_("nguyen lieu"), through='Food_Ingredient')
     ings2 = models.ManyToManyField(Type, verbose_name=_("loai nguyen lieu"), through='Food_Type')
